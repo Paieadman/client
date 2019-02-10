@@ -1,0 +1,15 @@
+<h2>registration</h2>
+<form (submit)="tryRegistration(login.value, pass.value)">
+  <div>
+    <label>Username</label>
+    <input type="text" #login/>
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" #pass/>
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+    <a routerLink="/">Authorization</a>
+  </div>
+</form>
