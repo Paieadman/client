@@ -9,13 +9,15 @@ import { RegistrationComponent } from './registration/registration.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { CurOrdComponent } from './cur-ord/cur-ord.component';
+import { AddOrderComponent } from './add-order/add-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthorizationComponent,
     RegistrationComponent,
-    CurOrdComponent
+    CurOrdComponent,
+    AddOrderComponent
   ],
   imports: [
     BrowserModule,

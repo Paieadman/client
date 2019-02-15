@@ -6,11 +6,13 @@ import {FormsModule} from '@angular/forms';
 import {AuthorizationComponent} from './authorization/authorization.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {CurOrdComponent} from './cur-ord/cur-ord.component';
+import {AddOrderComponent} from './add-order/add-order.component';
 
 const routes: Routes = [
   { path: '', component: AuthorizationComponent},
   { path: 'registration', component: RegistrationComponent},
-  { path: 'orders', component: CurOrdComponent}
+  { path: 'orders', component: CurOrdComponent},
+  { path: 'addOrder', component: AddOrderComponent}
   ];
 
 @NgModule({

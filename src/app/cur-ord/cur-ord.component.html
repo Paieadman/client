@@ -1,3 +1,11 @@
-<p>
-  cur-ord works!
-</p>
+<div>
+  <h3>Current orders are:</h3>
+  <ul>
+    <li *ngFor="let obj of orders">
+      <p> {{obj.id}}  {{obj.userid}}  {{obj.dateorder}} {{obj.dishes}} <button (click)="remove(obj.id)"></button><button (click)="update((obj.id))"></button>
+      </p>
+    </li>
+  </ul>
+</div>
+
+<a class="btn-floating btn-large waves-effect waves-light red" routerLink='/addOrder'><i class="material-icons">add</i></a>

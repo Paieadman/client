@@ -1,0 +1,9 @@
+<h2>Make a new order</h2>
+<ul>
+  <li *ngFor="let obj of menu">
+    <p> {{obj.id}}  {{obj.cost}}  {{obj.name}}
+      <button (click)="addDish(obj)">Add</button>
+    </p>
+  </li>
+</ul>
+<button (click)="endOrder()" routerLink='/orders'>Confirm</button>
