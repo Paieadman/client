@@ -22,11 +22,14 @@ export class CurOrdComponent implements OnInit {
       this.orders = resp;
       this.orders.forEach(function call(value) {
         console.log(value);
-      })
-    });
+      } ) } );
   }
   remove(num: number) {
     this.http.get('http://localhost:8080/orders/{num}/remove').subscribe(n => console.log(n));
+  }
+  update(obj: Order, value: string, pos: string) {
+
+    this.http.get('http://localhost:8080/orders/{}/update').subscribe(n => console.log(n));
   }
 
 }
