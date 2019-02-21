@@ -7,16 +7,21 @@ import {AuthorizationComponent} from './authorization/authorization.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {CurOrdComponent} from './cur-ord/cur-ord.component';
 import {AddOrderComponent} from './add-order/add-order.component';
+import {EditComponent} from './edit/edit.component';
+
+const orderRoutes: Routes = [
+  {path: ':id/update', component: EditComponent, pathMatch: 'full'}
+];
 
 const routes: Routes = [
   { path: '', component: AuthorizationComponent},
   { path: 'registration', component: RegistrationComponent},
-  { path: 'orders', component: CurOrdComponent},
-  { path: 'addOrder', component: AddOrderComponent}
+  { path: 'orders', component: CurOrdComponent, children: orderRoutes},
+  { path: 'addOrder', component: AddOrderComponent},
   ];
 
 @NgModule({
-  imports: [ BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule],
+  imports: [ BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule, RouterModule.forChild(orderRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

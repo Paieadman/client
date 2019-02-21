@@ -10,6 +10,8 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { CurOrdComponent } from './cur-ord/cur-ord.component';
 import { AddOrderComponent } from './add-order/add-order.component';
+import { EditComponent } from './edit/edit.component';
+import {MaterializeModule} from 'angular2-materialize';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { AddOrderComponent } from './add-order/add-order.component';
     AuthorizationComponent,
     RegistrationComponent,
     CurOrdComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
