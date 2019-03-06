@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Order} from '../dto/order';
-import {Dish} from '../dto/dish';
+import {Ord} from '../dto/Ord';
+import {Dish} from '../dto/Dish';
 
 const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
 
@@ -34,9 +34,9 @@ export class AddOrderComponent implements OnInit {
       str += ',' + this.order[i].id.toString();
     }
     console.log(str.toString());
-    console.log(new Order(0, 1, '2000-11-11 3:12:11', 1, str.toString()));
+    console.log(new Ord(0, 1, '2000-11-11 3:12:11', 1, str.toString()));
     this.http.post('http://localhost:8080/orders/add',
-      new Order(0, 1, '2000-11-11 3:12:11', 1, str.toString()), cudOptions).subscribe(
+      new Ord(0, 1, '2000-11-11 3:12:11', 1, str.toString()), cudOptions).subscribe(
       (n => console.log(n))
     );
   }

@@ -8,6 +8,7 @@ import {RegistrationComponent} from './registration/registration.component';
 import {CurOrdComponent} from './cur-ord/cur-ord.component';
 import {AddOrderComponent} from './add-order/add-order.component';
 import {EditComponent} from './edit/edit.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 const orderRoutes: Routes = [
   {path: ':id/update', component: EditComponent, pathMatch: 'full'}
@@ -21,7 +22,8 @@ const routes: Routes = [
   ];
 
 @NgModule({
-  imports: [ BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule, RouterModule.forChild(orderRoutes)],
+  imports: [ BrowserModule, RouterModule.forRoot(routes), FormsModule,
+    HttpClientModule, RouterModule.forChild(orderRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

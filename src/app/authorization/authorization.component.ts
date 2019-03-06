@@ -3,7 +3,7 @@ import {LogService} from '../smth/LogService';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../smth/user';
 import {AuthorizationService} from '../Services/AuthorizationService';
-
+import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
 
 @Component({
   selector: 'app-authorization',

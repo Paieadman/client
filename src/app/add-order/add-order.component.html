@@ -1,40 +1,51 @@
-<!--<h2>Make a new order</h2>-->
-<!--<ul>-->
-  <!--<li *ngFor="let obj of menu">-->
-    <!--<p> {{obj.id}}  {{obj.cost}}  {{obj.name}}-->
-      <!--<button (click)="addDish(obj)">Add</button>-->
-    <!--</p>-->
-  <!--</li>-->
-<!--</ul>-->
-<!--<button (click)="endOrder()" routerLink='/orders'>Confirm</button>-->
 
 
-<nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Logout</a></li>
-    </ul>
-  </div>
-</nav>
+<mat-toolbar color="primary">
 
-  <div class="container">
-    <div class="row " >
-      <div class="col s3" *ngFor="let obj of menu">
-        <div class="card hoverable small">
-          <div class="card-image">
-            <img src="#"alt="">
-            <span class="card-title"></span>
-          </div>
-          <div class="card-content">
-            <p> hey </p>
-          </div>
-          <div class="card-action">
-            <a (click)="addDish(obj)">Add</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <button type="button" area-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="purple-green">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>Big Apple</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav  mode="side" closed #drawer >
+    <mat-toolbar color="primary">
+    </mat-toolbar>
+    <mat-nav-list>
+      <button mat-raised-button color="primary">Finish</button>
+      <a mat-list-item href="#">Link</a>
+      <a mat-list-item href="#">Link</a>
+      <a mat-list-item href="#">Link</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-list role="list" >
+      <mat-list-item role="listitem" *ngFor="let obj of menu">
+
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{obj.name}}</mat-card-title>
+            <mat-card-subtitle>Here will locate category</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            {{obj.id}}
+            {{obj.cost}}
+          </mat-card-content>
+          <mat-card-actions>
+          </mat-card-actions>
+        </mat-card>
+
+
+      </mat-list-item>
+    </mat-list>
+
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
 

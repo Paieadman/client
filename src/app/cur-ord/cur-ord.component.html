@@ -1,113 +1,48 @@
-<!--<div>-->
-  <!--<h3>Current orders are:</h3>-->
-  <!--<ul>-->
-    <!--<li *ngFor="let obj of orders">-->
-      <!--<p> {{obj.id}}  {{obj.userid}}  {{obj.dateorder}} {{obj.dishes}} <button (click)="remove(obj.id)"></button><button (click)="update((obj.id))"></button>-->
-      <!--</p>-->
-    <!--</li>-->
-  <!--</ul>-->
-<!--</div>-->
-
-<!--<a class="btn-floating btn-large waves-effect waves-light red" routerLink='/addOrder'><i class="material-icons">add</i></a>-->
-
-<nav>
-  <div class="nav-wrapper">
-    <a  class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a data-target="slide-out" materialize="sideNav">Components</a></li>
-      <li><a>Logout</a></li>
-    </ul>
-  </div>
-</nav>
-
-<ul id="slide-out" class="side-nav">
-  <li><div class="user-view">
-    <div class="background">
-    </div>
-    <a href="#!user"></a>
-    <a href="#!name"><span class="white-text name">John Doe</span></a>
-    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-  </div></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-  <li><a href="#!">Second Link</a></li>
-  <li><div class="divider"></div></li>
-  <li><a class="subheader">Subheader</a></li>
-  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-</ul>
-<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
-<app-edit></app-edit>
-
-<table class=" highlight responsive-table centered">
-  <thead>
-  <tr>
-    <th>Order id</th>
-    <th>User</th>
-    <th>Dishes id</th>
-    <th>hey </th>
-  </tr>
-  </thead>
 
 
-  <tbody>
-  <tr  *ngFor="let obj of orders">
-    <td >{{obj.id}}</td>
-    <td>{{obj.userid}}</td>
-    <td>{{obj.dishes}}</td>
-    <td><a [routerLink] = "[obj.id, 'update']"> edit </a></td>
-  </tr>
-  </tbody>
-</table>
+<mat-toolbar color="primary">
+
+  <button type="button" area-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="purple-green">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>Big Apple</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav  mode="side" closed #drawer >
+    <mat-toolbar color="primary">
+    </mat-toolbar>
+    <mat-nav-list>
+      <button mat-raised-button color="primary">Edit</button>
+      <a mat-list-item href="#">Link</a>
+      <a mat-list-item href="#">Link</a>
+      <a mat-list-item href="#">Link</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
 
 
-<!--<div id="modal2" class="modal">-->
-  <!--<div class="modal-content">-->
-    <!--<div class="row">-->
-      <!--<form class="col s12">-->
-        <!--<div class="row">-->
-          <!--<div class="input-field col s12">-->
-            <!--<textarea id="textarea1" class="materialize-textarea">{{obj.dishes}}</textarea>-->
-            <!--<label for="textarea1">Textarea</label>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</form>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="modal-footer">-->
-    <!--<a href="#!" class="modal-close waves-effect waves-green btn-flat" (click)="update(obj,textarea1.value(),'5')">Agree</a>-->
-  <!--</div>-->
-<!--</div>-->
-
-
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large red waves-effect waves-light" routerLink='/addOrder' (mouseenter)="mouseEnter()">
-    <i class="large material-icons">+</i>
-  </a>
-  <ul>
-    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-  </ul>
-</div>
+    <mat-list role="list">
+      <mat-accordion>
+      <mat-list-item role="listitem" *ngFor="let obj of orders">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{obj.id}} {{obj.dishes}}
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+              {{obj.dishes}} {{obj.date}} {{obj.user}}
+          </mat-expansion-panel>
+      </mat-list-item>
+      </mat-accordion>
+    </mat-list>
 
 
 
-<!-- Modal Structure -->
-<div id="modalone" class="modal">
-  <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-  </div>
-</div>
-<button class="waves-effect waves-light btn modal-trigger" href="modalone">Modal</button>
-<!--<div id="#modal1" class="modal">-->
-  <!--<div class="modal-content">-->
-    <!--<a class="waves-effect waves-light btn">button</a>-->
-    <!--<a class="waves-effect waves-light btn">button</a>-->
-    <!--<a class="waves-effect waves-light btn">button</a>-->
-  <!--</div>-->
-<!--</div>-->
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
