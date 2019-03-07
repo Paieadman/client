@@ -18,3 +18,6 @@ mat-expansion-panel {
 .mat-drawer-content {
   padding: 2%;
 }
+.example-spacer {
+  flex: 1 1 auto;
+}
