@@ -10,34 +10,79 @@
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav  mode="side" closed #drawer >
-    <mat-toolbar color="primary">
-    </mat-toolbar>
+    <!--<mat-toolbar color="primary">-->
+    <!--</mat-toolbar>-->
     <mat-nav-list>
-      <button mat-raised-button color="primary">Edit</button>
-      <a mat-list-item href="#">Link</a>
-      <a mat-list-item href="#">Link</a>
-      <a mat-list-item href="#">Link</a>
+      <!--<div>-->
+      <!--<button mat-raised-button color="primary">Edit</button>-->
+      <!--</div>-->
+      <!--<div>-->
+      <!--<button mat-raised-button color="primary"routerLink='/addOrder'>Add</button>-->
+      <!--</div>-->
+    <mat-list-item>
+    <div>Текущие</div>
+    </mat-list-item>
+      <mat-list-item routerLink="/finished">
+        <div>Выполненные</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/info">
+        <div>Сотрудник</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/info/orders">
+        <div>Мои заказы</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/analitics">
+        <div>Аналитика</div>
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
 
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let obj of orders">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Заказ №{{obj.id}}
+          </mat-panel-title>
 
-    <mat-list role="list">
-      <mat-accordion>
-      <mat-list-item role="listitem" *ngFor="let obj of orders">
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{obj.id}} {{obj.dishes}}
-              </mat-panel-title>
-              <mat-panel-description>
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-              {{obj.dishes}} {{obj.date}} {{obj.user}}
-          </mat-expansion-panel>
-      </mat-list-item>
-      </mat-accordion>
-    </mat-list>
+          <!--<mat-panel-description>-->
+            <!--Type your name and age-->
+          <!--</mat-panel-description>-->
+        </mat-expansion-panel-header>
+        <p>hello here</p>
+        <!--<mat-form-field>-->
+          <!--<input matInput placeholder="Age">-->
+        <!--</mat-form-field>-->
+      </mat-expansion-panel>
+      <!--<mat-expansion-panel (opened)="panelOpenState = true"-->
+                           <!--(closed)="panelOpenState = false">-->
+        <!--<mat-expansion-panel-header>-->
+          <!--<mat-panel-title>-->
+            <!--Self aware panel-->
+          <!--</mat-panel-title>-->
+          <!--<mat-panel-description>-->
+            <!--Currently I am {{panelOpenState ? 'open' : 'closed'}}-->
+          <!--</mat-panel-description>-->
+        <!--</mat-expansion-panel-header>-->
+        <!--<p>I'm visible because I am open</p>-->
+      <!--</mat-expansion-panel>-->
+    </mat-accordion>
+    <!--<mat-list role="list">-->
+      <!--<mat-accordion>-->
+      <!--&lt;!&ndash;<mat-list-item role="listitem" *ngFor="let obj of orders">&ndash;&gt;-->
+          <!--&lt;!&ndash;<mat-expansion-panel>&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-expansion-panel-header>&ndash;&gt;-->
+              <!--&lt;!&ndash;<mat-panel-title>&ndash;&gt;-->
+                <!--&lt;!&ndash;Заказ №{{obj.id}}&ndash;&gt;-->
+              <!--&lt;!&ndash;</mat-panel-title>&ndash;&gt;-->
+              <!--&lt;!&ndash;<mat-panel-description>&ndash;&gt;-->
+              <!--&lt;!&ndash;</mat-panel-description>&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-expansion-panel-header>&ndash;&gt;-->
+              <!--&lt;!&ndash;{{obj.dishes}} Дата заказа:{{obj.date}} Id исполнителя: {{obj.user}}&ndash;&gt;-->
+          <!--&lt;!&ndash;</mat-expansion-panel>&ndash;&gt;-->
+      <!--</mat-list-item>-->
+      <!--</mat-accordion>-->
+    <!--</mat-list>-->
 
 
 

@@ -18,7 +18,7 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
-  MatSidenavModule, MatCheckboxModule, MatAccordion, MatExpansionModule, MatFormFieldModule
+  MatSidenavModule, MatCheckboxModule, MatAccordion, MatExpansionModule, MatFormFieldModule, MatInputModule
 } from '@angular/material';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
@@ -48,7 +48,8 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatTableModule,
     MatExpansionModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     BrowserModule,
@@ -62,7 +63,8 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatTableModule,
     MatExpansionModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

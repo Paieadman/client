@@ -13,14 +13,18 @@
     <!--<a routerLink='/registration'>register</a>-->
   <!--</form>-->
 <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
+<h1>Authorization</h1>
   <div class="example-container" (submit)="tryLogin(login.value.toString(), pass.value.toString())">
+    <div>
     <mat-form-field>
       <input matInput placeholder="Login" #login>
     </mat-form-field>
+    </div>
+    <div>
     <mat-form-field>
-      <Input matInput placeholder="Pass" #pass>
+      <input matInput placeholder="Pass" #pass>
     </mat-form-field>
+    </div>
     <div class="example-button-row">
       <button mat-raised-button color="primary" type="submit">Submit</button>
       <a mat-raised-button routerLink='/registration'>register</a>

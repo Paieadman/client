@@ -10,24 +10,33 @@
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav  mode="side" closed #drawer >
-    <mat-toolbar color="primary">
-    </mat-toolbar>
+    <!--<mat-toolbar color="primary">-->
+    <!--</mat-toolbar>-->
     <mat-nav-list>
-      <button mat-raised-button color="primary">Finish</button>
-      <a mat-list-item href="#">Link</a>
-      <a mat-list-item href="#">Link</a>
-      <a mat-list-item href="#">Link</a>
+      <mat-list-item>
+      <div>Текущие</div>
+    </mat-list-item>
+    <mat-list-item routerLink="/finished">
+      <div>Выполненные</div>
+    </mat-list-item>
+    <mat-list-item routerLink="/info">
+      <div>Сотрудник</div>
+    </mat-list-item>
+    <mat-list-item routerLink="/info/orders">
+      <div>Мои заказы</div>
+    </mat-list-item>
+    <mat-list-item routerLink="/analitics">
+      <div>Аналитика</div>
+    </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-list role="list" >
-      <mat-list-item role="listitem" *ngFor="let obj of menu">
-
-
-        <mat-card class="example-card">
+        <mat-card class="example-card" *ngFor="let obj of menu">
           <mat-card-header>
-            <mat-card-title>{{obj.name}}</mat-card-title>
+            <mat-card-title>{{obj.name}}
+              <button mat-raised-button color="primary">Add</button>
+            </mat-card-title>
             <mat-card-subtitle>Here will locate category</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
@@ -37,14 +46,6 @@
           <mat-card-actions>
           </mat-card-actions>
         </mat-card>
-
-
-      </mat-list-item>
-    </mat-list>
-
-
-
-
 
   </mat-sidenav-content>
 </mat-sidenav-container>
