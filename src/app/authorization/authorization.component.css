@@ -1,9 +1,27 @@
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+/*.example-container {*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+/*}*/
+
+/*.example-container > * {*/
+  /*width: 100%;*/
+/*}*/
+
+/*.f {*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*margin-left: 40%;*/
+  /*margin-top: 10%;*/
+  /*float: left;*/
+/*}*/
 .example-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .example-container > * {
   width: 100%;
+  height: 100%;
 }

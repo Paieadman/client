@@ -5,15 +5,13 @@ export class Ord {
   private user: number;
   private date: string;
   private status: number;
-  private dishes: string;
 
 
-  constructor(id: number, user: number, date: string, status: number, dishes: string) {
+  constructor(id: number, user: number, date: string, status: number) {
     this.id = id;
     this.user = user;
     this.date = date;
     this.status = status;
-    this.dishes = dishes;
   }
 
   getId(): number {
@@ -46,13 +44,5 @@ export class Ord {
 
   setStatus(value: number) {
     this.status = value;
-  }
-
-  getDishes(): string {
-    return this.dishes;
-  }
-
-  setDishes(value: string) {
-    this.dishes = value;
   }
 }

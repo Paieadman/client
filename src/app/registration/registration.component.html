@@ -1,15 +1,15 @@
+<div class="f">
 <H1>Registration</H1>
-
-<div class="example-container" (submit)="tryRegistration(login.value, pass.value)">
+<div class="example-container" >
   <mat-form-field>
     <input matInput placeholder="Login" #login>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Pass" #pass>
+    <input matInput placeholder="Pass" type="password" #pass>
   </mat-form-field>
   <div class="example-button-row">
-    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <button mat-raised-button color="primary" (click)="tryRegistration(login.value, pass.value)">Submit</button>
     <a mat-raised-button routerLink='/'>authorization</a>
   </div>
 </div>
-
+</div>

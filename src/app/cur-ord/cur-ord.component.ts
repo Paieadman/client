@@ -43,4 +43,12 @@ export class CurOrdComponent implements OnInit {
     console.log(ord);
     return Url;
   }
+  getNames(ord: Ord) {
+    let url: string = 'http://localhost:8080/get/' + ord.getId();
+    let names: string[];
+    this.http.get(url).subscribe((n: string[]) => {
+      names = n;
+    });
+    return names;
+  }
 }

@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {User} from '../smth/user';
 import {AuthorizationService} from '../Services/AuthorizationService';
 import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-authorization',
@@ -14,14 +15,20 @@ import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/mater
 export class AuthorizationComponent implements OnInit {
   user: User;
 
-  constructor(private http: AuthorizationService) {
+  constructor(private http: AuthorizationService, private  router: Router) {
   }
 
   ngOnInit() {
   }
   tryLogin(login: string, pass: string) {
     alert(login + pass);
-    return this.http.getAuthorization(login, pass);
+    console.log('try login');
+    this.http.getAuthorization(login, pass).subscribe((n: boolean) => {
+      if (n == true) {
+        console.log('true');
+        this.router.navigateByUrl('orders');
+      }
+    });
   }
 
 }
