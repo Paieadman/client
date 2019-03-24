@@ -7,7 +7,14 @@
   </button>
   <span>Big Apple</span>
   <span class="example-spacer"></span>
-  <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+  <p>
+    <button mat-icon-button>
+      <mat-icon [matBadge]="lengthOfOrder()" matBadgePosition="before" matBadgeColor="warn" (click)="openDialog()" >home</mat-icon>
+    </button>
+    <span class="cdk-visually-hidden">
+      Example with a home icon with overlaid badge showing the number 15
+    </span>
+  </p>
   <button mat-button>Logout</button>
 </mat-toolbar>
 

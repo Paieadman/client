@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {LogService} from '../smth/LogService';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../smth/user';
+import {User} from '../dto/user';
 import {AuthorizationService} from '../Services/AuthorizationService';
-import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatDialog, MatInputModule} from '@angular/material';
 import {Router} from '@angular/router';
 
 @Component({
@@ -15,11 +14,12 @@ import {Router} from '@angular/router';
 export class AuthorizationComponent implements OnInit {
   user: User;
 
-  constructor(private http: AuthorizationService, private  router: Router) {
+  constructor(private http: AuthorizationService, private  router: Router, public dialog: MatDialog) {
   }
 
   ngOnInit() {
   }
+
   tryLogin(login: string, pass: string) {
     alert(login + pass);
     console.log('try login');

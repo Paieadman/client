@@ -18,10 +18,20 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
-  MatSidenavModule, MatCheckboxModule, MatAccordion, MatExpansionModule, MatFormFieldModule, MatInputModule
+  MatSidenavModule,
+  MatCheckboxModule,
+  MatAccordion,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  MatSelectModule
 } from '@angular/material';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
+import {MatBadgeModule} from '@angular/material';
+import { CardComponent } from './card/card.component';
+import { KitchenerComponent } from './kitchener/kitchener.component';
 
 
 @NgModule({
@@ -31,7 +41,9 @@ import {MatTableModule} from '@angular/material/table';
     RegistrationComponent,
     CurOrdComponent,
     AddOrderComponent,
-    EditComponent
+    EditComponent,
+    CardComponent,
+    KitchenerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +61,10 @@ import {MatTableModule} from '@angular/material/table';
     MatTableModule,
     MatExpansionModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatBadgeModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   exports: [
     BrowserModule,
@@ -65,6 +80,12 @@ import {MatTableModule} from '@angular/material/table';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatBadgeModule,
+    MatButtonModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

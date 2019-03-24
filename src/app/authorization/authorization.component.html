@@ -1,48 +1,23 @@
-  <!--<H1>Authorization</H1>-->
-
-  <!--<form (submit)="tryLogin(login.value.toString(), pass.value.toString())">-->
-<!--<p>-->
-    <!--<input #login>-->
-<!--</p>-->
-    <!--<p>-->
-    <!--<input #pass>-->
-    <!--</p>-->
-    <!--<button type="submit" >Submit-->
-      <!--<i>send</i>-->
-    <!--</button>-->
-    <!--<a routerLink='/registration'>register</a>-->
-  <!--</form>-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-  <!--<div class="f">-->
-  <!--<H1>Authorization</H1>-->
-  <!--<div class="example-container" (submit)="tryLogin(login.value.toString(), pass.value.toString())">-->
-    <!--<mat-form-field>-->
-      <!--<input matInput placeholder="Login" #login>-->
-    <!--</mat-form-field>-->
-    <!--<mat-form-field>-->
-      <!--<input matInput placeholder="Pass" #pass>-->
-    <!--</mat-form-field>-->
-    <!--<div class="example-button-row">-->
-      <!--<button mat-raised-button color="primary" type="submit">Submit</button>-->
-      <!--<a mat-raised-button routerLink='/registration'>register</a>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
-
-
-  <div class="f">
-    <H1>Authorization</H1>
-
-    <div class="example-container" >
-      <mat-form-field>
-        <input matInput placeholder="Login" #login>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Pass" type="password" #pass>
-      </mat-form-field>
-      <div class="example-button-row">
-        <button mat-raised-button color="primary" (click)="tryLogin(login.value.toString(), pass.value.toString())">Submit</button>
-        <a mat-raised-button routerLink='/registration'>registration</a>
+<div class="login">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Login" #login>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" #pass>
+        </mat-form-field>
       </div>
-    </div>
-  </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="tryLogin(login.value.toString(), pass.value.toString())">
+        Login
+      </button>
+      <button mat-raised-button routerLink='/registration' >Registration</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

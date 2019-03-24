@@ -8,22 +8,27 @@ import {RegistrationComponent} from './registration/registration.component';
 import {CurOrdComponent} from './cur-ord/cur-ord.component';
 import {AddOrderComponent} from './add-order/add-order.component';
 import {EditComponent} from './edit/edit.component';
+import {MatBadgeModule, MatButtonModule, MatIconModule} from '@angular/material';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {CardComponent} from './card/card.component';
+import {KitchenerComponent} from './kitchener/kitchener.component';
 
 const orderRoutes: Routes = [
   {path: ':id/update', component: EditComponent, pathMatch: 'full'}
 ];
 
 const routes: Routes = [
-  { path: '', component: AuthorizationComponent},
+  { path: '', component: AuthorizationComponent },
   { path: 'registration', component: RegistrationComponent},
   { path: 'orders', component: CurOrdComponent, children: orderRoutes},
   { path: 'addOrder', component: AddOrderComponent},
+  { path: 'order/:id', component: CardComponent},
+  { path: 'kitchen', component: KitchenerComponent}
   ];
 
 @NgModule({
   imports: [ BrowserModule, RouterModule.forRoot(routes), FormsModule,
-    HttpClientModule, RouterModule.forChild(orderRoutes)],
+    HttpClientModule, RouterModule.forChild(orderRoutes), MatBadgeModule, MatButtonModule, MatIconModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

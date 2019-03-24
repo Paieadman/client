@@ -1,15 +1,37 @@
-<div class="f">
-<H1>Registration</H1>
-<div class="example-container" >
-  <mat-form-field>
-    <input matInput placeholder="Login" #login>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Pass" type="password" #pass>
-  </mat-form-field>
-  <div class="example-button-row">
-    <button mat-raised-button color="primary" (click)="tryRegistration(login.value, pass.value)">Submit</button>
-    <a mat-raised-button routerLink='/'>authorization</a>
-  </div>
+<div class="registration">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Registration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Login" #login>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" #pass>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Name" #name>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Role</mat-label>
+          <mat-option>
+            <mat-select>
+              <mat-option value="USER"> USER</mat-option>
+              <mat-option value="USER"> COOKER</mat-option>
+              <mat-option value="USER"> ADMINISTARTOR</mat-option>
+            </mat-select>
+          </mat-option>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary"
+              (click)="tryRegistration(login.value, pass.value, name.value, role.value)">Submit
+      </button>
+      <a mat-raised-button routerLink='/'>Authorization</a>
+    </mat-card-actions>
+  </mat-card>
 </div>
-</div>
+

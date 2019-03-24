@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../smth/user';
 import {Router} from '@angular/router';
+import {UserAuto} from '../dto/UserAuto';
 
 @Injectable()
 export class AuthorizationService {
@@ -10,6 +10,6 @@ export class AuthorizationService {
   }
 
   getAuthorization(login: string, pass: string) {
-    return this.http.post('http://localhost:8080/authorization', new User(login, pass));
+    return this.http.post('http://localhost:8080/authorization', new UserAuto(login, pass));
   }
 }

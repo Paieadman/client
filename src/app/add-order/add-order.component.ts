@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Ord} from '../dto/Ord';
 import {Dish} from '../dto/Dish';
+import {Router} from '@angular/router';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {CardComponent} from '../card/card.component';
+import {OrderNumber} from '../dto/OrderNumber';
+import {variable} from '@angular/compiler/src/output/output_ast';
 
 
 const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
@@ -15,7 +20,9 @@ export class AddOrderComponent implements OnInit {
   menu: Dish[] = [];
   order: Dish[] = [];
   ord: number;
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.http.get('http://localhost:8080/menu').subscribe((resp: Dish[]) => {
@@ -33,6 +40,11 @@ export class AddOrderComponent implements OnInit {
     console.log(this.ord);
     console.log('from init');
   }
+
+  lengthOfOrder(): number {
+    return this.order.length;
+  }
+
   addDish(dish: Dish) {
     this.order.push(dish);
     console.log(dish.id);
@@ -42,7 +54,7 @@ export class AddOrderComponent implements OnInit {
 
   endOrder() {
     let str: string = this.order[0].id.toString();
-    for ( let i = 1; i < this.order.length; i++) {
+    for (let i = 1; i < this.order.length; i++) {
       str += ',' + this.order[i].id.toString();
     }
     console.log(str.toString());
@@ -52,4 +64,15 @@ export class AddOrderComponent implements OnInit {
     //   (n => console.log(n))
     // );
   }
+
+  goto() {
+    this.router.navigate(['order/', this.ord]);
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    this.dialog.open(CardComponent, { data: { variable: this.ord} } );
+  }
 }
+

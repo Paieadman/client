@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
   }
-  tryRegistration(login: string, pass: string) {
-    return this.http.getRegistration(login, pass);
+  tryRegistration(login: string, pass: string, name: string, role: string) {
+    this.http.getRegistration(login, pass, name, role);
   }
 }
