@@ -7,7 +7,6 @@ import {AuthorizationComponent} from './authorization/authorization.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {CurOrdComponent} from './cur-ord/cur-ord.component';
 import {AddOrderComponent} from './add-order/add-order.component';
-import {EditComponent} from './edit/edit.component';
 import {MatBadgeModule, MatButtonModule, MatIconModule} from '@angular/material';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {CardComponent} from './card/card.component';
@@ -33,15 +32,13 @@ const routes: Routes = [
   { path: 'authorization', component: AuthorizationComponent },
   { path: 'registration', component: RegistrationComponent},
   { path: '', component: TitledComponent, children: [
-      { path: ':id/update', component: EditComponent, pathMatch: 'full'},
       { path: 'orders', component: CurOrdComponent},
       { path: 'menu', component: AddOrderComponent},
       { path: 'order', component: CardComponent},
       { path: 'analytics', component: AnalyticsComponent},
       { path: 'performed', component: PerformedComponent},
       { path: 'info', component: InfoComponent},
-      { path: 'orders/all', component: MyComponent},
-      { path: 'a', component: EditComponent}
+      { path: 'orders/all', component: MyComponent}
     ]}
   ];
 

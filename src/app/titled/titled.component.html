@@ -1,0 +1,47 @@
+
+
+<mat-toolbar color="primary">
+
+  <button type="button" area-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="purple-green">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>Big Apple</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button>
+    <mat-icon (click)="openDialog()">shopping_cart</mat-icon>
+  </button>
+  <button mat-button (click)="this.sessionService.exit()">Logout</button>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav  mode="side" closed #drawer >
+
+    <mat-nav-list>
+
+      <mat-list-item routerLink="/orders" (click)="drawer.toggle()">
+        <div>Текущие заказы</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/performed" (click)="drawer.toggle()">
+        <div>Выполненные</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/info" (click)="drawer.toggle()">
+        <div>Сотрудник</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/orders/all" (click)="drawer.toggle()">
+        <div>Мои заказы</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/analytics" (click)="drawer.toggle()">
+        <div>Аналитика</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/menu" (click)="drawer.toggle()">
+        <div>Меню</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+  <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

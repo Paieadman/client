@@ -1,0 +1,35 @@
+.lst {
+  display: flex;
+  /*flex-direction: column;*/
+  /*margin-left: 30%;*/
+  /*!*margin-top: 1%;*!*/
+  /*margin-right: 30%;*/
+  float: left;
+  height: 100%;
+  width: 150px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.listItem {
+  width: 100%;
+}
+
+.mat-list {
+  width: 100%;
+}
+
+.confirmButton {
+  margin: 3%;
+}
+.continueButton {
+  margin-left: 29%;
+}
+/*.mat-dialog-container {*/
+   /*width: 400px !important;*/
+   /*height: 400px !important;*/
+   /*!*transform: initial;*!*/
+ /*}*/
+

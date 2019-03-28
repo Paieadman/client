@@ -1,0 +1,14 @@
+
+
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let obj of orders"
+                           (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{obj.id}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        {{obj.description}}
+      </mat-expansion-panel>
+    </mat-accordion>

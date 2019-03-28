@@ -10,7 +10,6 @@ import {FormControl, FormsModule, Validators, ReactiveFormsModule} from '@angula
 import {RouterModule} from '@angular/router';
 import { CurOrdComponent } from './cur-ord/cur-ord.component';
 import { AddOrderComponent } from './add-order/add-order.component';
-import { EditComponent } from './edit/edit.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
@@ -33,7 +32,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatBadgeModule} from '@angular/material';
 import {CardComponent } from './card/card.component';
 import { CookieService } from 'ngx-cookie-service';
-import { CurrentComponent } from './current/current.component';
 import { MyComponent } from './my/my.component';
 import { InfoComponent } from './info/info.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
@@ -48,9 +46,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     RegistrationComponent,
     CurOrdComponent,
     AddOrderComponent,
-    EditComponent,
     CardComponent,
-    CurrentComponent,
     MyComponent,
     InfoComponent,
     AnalyticsComponent,
