@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegistrationService} from '../Services/RegistrationService';
-
+import {FormControl, Validators} from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -10,11 +12,44 @@ import {RegistrationService} from '../Services/RegistrationService';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private http: RegistrationService) { }
+  public inputValidator1 = new FormControl('', [Validators.required]);
+  public inputValidator2 = new FormControl('', [Validators.required]);
+  public inputValidator3 = new FormControl('', [Validators.required]);
+  public inputValidator4 = new FormControl('', [Validators.required]);
+  private error = false;
+
+  constructor(private http: RegistrationService, private cookieService: CookieService, private router: Router) {
+  }
 
   ngOnInit() {
   }
-  tryRegistration(login: string, pass: string, name: string, role: string) {
-    this.http.getRegistration(login, pass, name, role);
+
+  getErrorMessage1() {
+    return this.inputValidator1.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  getErrorMessage2() {
+    return this.inputValidator2.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  getErrorMessage3() {
+    return this.inputValidator3.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  getErrorMessage4() {
+    return this.inputValidator4.hasError('required') ? 'You must enter a value' : '';
+  }
+
+
+  tryRegistration(login: string, password: string, name: string, role: string) {
+    if (login != null && password != null && name != null && role != null) {
+
+      this.http.getRegistration(name, role, login, password).subscribe((userId: number) => {
+        this.cookieService.set('userId', userId.toString());
+        this.router.navigateByUrl('orders');
+      });
+    } else {
+      this.error = true;
+    }
   }
 }

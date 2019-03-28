@@ -4,6 +4,7 @@ import {User} from '../dto/user';
 import {AuthorizationService} from '../Services/AuthorizationService';
 import {MatButtonModule, MatCheckboxModule, MatDialog, MatInputModule} from '@angular/material';
 import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-authorization',
@@ -14,19 +15,19 @@ import {Router} from '@angular/router';
 export class AuthorizationComponent implements OnInit {
   user: User;
 
-  constructor(private http: AuthorizationService, private  router: Router, public dialog: MatDialog) {
+  constructor(private http: AuthorizationService, private  router: Router,
+              public dialog: MatDialog, private cookieSevice: CookieService) {
   }
 
   ngOnInit() {
   }
 
   tryLogin(login: string, pass: string) {
-    alert(login + pass);
-    console.log('try login');
-    this.http.getAuthorization(login, pass).subscribe((n: boolean) => {
-      if (n == true) {
-        console.log('true');
-        this.router.navigateByUrl('orders');
+    this.http.getAuthorization(login, pass).subscribe((userId: number) => {
+      if (userId != 0) {
+        this.cookieSevice.delete('userId');
+        this.cookieSevice.set('userId', userId.toString());
+        this.router.navigateByUrl('/orders');
       }
     });
   }

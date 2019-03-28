@@ -6,21 +6,23 @@
     <mat-card-content>
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Login" #login>
+          <input matInput placeholder="Login" #login [formControl]="inputValidator1" required>
+          <mat-error *ngIf="inputValidator1.invalid">{{getErrorMessage1()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Password" type="password" #pass>
+          <input matInput placeholder="Password" type="password" #password [formControl]="inputValidator2" required>
+          <mat-error *ngIf="inputValidator2.invalid">{{getErrorMessage2()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Name" #name>
+          <input matInput placeholder="Name" #name [formControl]="inputValidator3" required>
+          <mat-error *ngIf="inputValidator3.invalid">{{getErrorMessage3()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Role</mat-label>
           <mat-option>
-            <mat-select>
-              <mat-option value="USER"> USER</mat-option>
-              <mat-option value="USER"> COOKER</mat-option>
-              <mat-option value="USER"> ADMINISTARTOR</mat-option>
+            <mat-select #role>
+              <mat-option value="USER"> USER </mat-option>
+              <mat-option value="COOK"> COOK </mat-option>
             </mat-select>
           </mat-option>
         </mat-form-field>
@@ -28,10 +30,11 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary"
-              (click)="tryRegistration(login.value, pass.value, name.value, role.value)">Submit
+              (click)="tryRegistration(login.value, password.value, name.value, role.value)">Register
       </button>
-      <a mat-raised-button routerLink='/'>Authorization</a>
+      <a mat-raised-button routerLink='/authorization'>Authorization</a>
     </mat-card-actions>
+    <mat-error *ngIf="error">All forms must be filled</mat-error>
   </mat-card>
 </div>
 

@@ -3,12 +3,8 @@ mat-sidenav{
   height: 100%;
 }
 
-/*mat-sidenav-container{*/
-  /*height: 100%;*/
-/*}*/
 mat-sidenav-content {
   height: 80vh;
-  /*position: absolute;*/
 }
 
 mat-expansion-panel {

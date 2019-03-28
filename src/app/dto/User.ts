@@ -3,13 +3,15 @@ export class User {
   private password: string;
   private name: string;
   private role: string;
+  private active: number;
 
 
-  constructor(login: string, password: string, name: string, role: string) {
+  constructor(login: string, password: string, name: string, role: string, active: number) {
     this.login = login;
     this.password = password;
     this.name = name;
     this.role = role;
+    this.active = active;
   }
 
   getLogin(): string {

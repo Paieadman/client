@@ -11,24 +11,43 @@ import {EditComponent} from './edit/edit.component';
 import {MatBadgeModule, MatButtonModule, MatIconModule} from '@angular/material';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {CardComponent} from './card/card.component';
-import {KitchenerComponent} from './kitchener/kitchener.component';
+import {AnalyticsComponent} from './analytics/analytics.component';
+import {PerformedComponent} from './performed/performed.component';
+import {InfoComponent} from './info/info.component';
+import {MyComponent} from './my/my.component';
+import {TitledComponent} from './titled/titled.component';
 
-const orderRoutes: Routes = [
-  {path: ':id/update', component: EditComponent, pathMatch: 'full'}
-];
+// const otherRoutes: Routes = [
+//   { path: ':id/update', component: EditComponent, pathMatch: 'full'},
+//   { path: 'ord/orders', component: CurOrdComponent},
+//   { path: 'menu', component: AddOrderComponent},
+//   { path: 'order', component: CardComponent},
+//   { path: 'analytics', component: AnalyticsComponent},
+//   { path: 'performed', component: PerformedComponent},
+//   { path: 'info', component: InfoComponent},
+//   { path: 'orders/all', component: MyComponent},
+//   { path: 'a', component: EditComponent}
+// ];
 
 const routes: Routes = [
-  { path: '', component: AuthorizationComponent },
+  { path: 'authorization', component: AuthorizationComponent },
   { path: 'registration', component: RegistrationComponent},
-  { path: 'orders', component: CurOrdComponent, children: orderRoutes},
-  { path: 'addOrder', component: AddOrderComponent},
-  { path: 'order/:id', component: CardComponent},
-  { path: 'kitchen', component: KitchenerComponent}
+  { path: '', component: TitledComponent, children: [
+      { path: ':id/update', component: EditComponent, pathMatch: 'full'},
+      { path: 'orders', component: CurOrdComponent},
+      { path: 'menu', component: AddOrderComponent},
+      { path: 'order', component: CardComponent},
+      { path: 'analytics', component: AnalyticsComponent},
+      { path: 'performed', component: PerformedComponent},
+      { path: 'info', component: InfoComponent},
+      { path: 'orders/all', component: MyComponent},
+      { path: 'a', component: EditComponent}
+    ]}
   ];
 
 @NgModule({
   imports: [ BrowserModule, RouterModule.forRoot(routes), FormsModule,
-    HttpClientModule, RouterModule.forChild(orderRoutes), MatBadgeModule, MatButtonModule, MatIconModule],
+    HttpClientModule, MatBadgeModule, MatButtonModule, MatIconModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

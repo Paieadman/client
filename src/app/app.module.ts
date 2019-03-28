@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { RegistrationComponent } from './registration/registration.component';
-import {FormsModule} from '@angular/forms';
+import {FormControl, FormsModule, Validators, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { CurOrdComponent } from './cur-ord/cur-ord.component';
 import { AddOrderComponent } from './add-order/add-order.component';
@@ -25,14 +25,21 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule, MatChipsModule, MatDatepickerModule
 } from '@angular/material';
+
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatBadgeModule} from '@angular/material';
-import { CardComponent } from './card/card.component';
-import { KitchenerComponent } from './kitchener/kitchener.component';
-
+import {CardComponent } from './card/card.component';
+import { CookieService } from 'ngx-cookie-service';
+import { CurrentComponent } from './current/current.component';
+import { MyComponent } from './my/my.component';
+import { InfoComponent } from './info/info.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { PerformedComponent } from './performed/performed.component';
+import { TitledComponent } from './titled/titled.component';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -43,7 +50,12 @@ import { KitchenerComponent } from './kitchener/kitchener.component';
     AddOrderComponent,
     EditComponent,
     CardComponent,
-    KitchenerComponent
+    CurrentComponent,
+    MyComponent,
+    InfoComponent,
+    AnalyticsComponent,
+    PerformedComponent,
+    TitledComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +76,11 @@ import { KitchenerComponent } from './kitchener/kitchener.component';
     MatInputModule,
     MatBadgeModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   exports: [
     BrowserModule,
@@ -85,9 +101,11 @@ import { KitchenerComponent } from './kitchener/kitchener.component';
     MatIconModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatChipsModule,
+    MatDatepickerModule
   ],
-  providers: [],
+  providers: [ CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,13 +6,16 @@ export class Dish {
   private _cost: number;
   private _image: string;
   private _name: string;
+  private _category: string;
 
-  constructor(id: number, composition: string, cost: number, image: string, name: string) {
+
+  constructor(id: number, composition: string, cost: number, image: string, name: string, category: string) {
     this._id = id;
     this._composition = composition;
     this._cost = cost;
     this._image = image;
     this._name = name;
+    this._category = category;
   }
 
   get id(): number {
@@ -53,5 +56,13 @@ export class Dish {
 
   set name(value: string) {
     this._name = value;
+  }
+
+  get category(): string {
+    return this._category;
+  }
+
+  set category(value: string) {
+    this._category = value;
   }
 }
