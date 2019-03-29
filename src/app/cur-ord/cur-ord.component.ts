@@ -22,6 +22,7 @@ declare var $: any;
 export class CurOrdComponent implements OnInit {
   orders: Order[] = [];
   private flag: boolean;
+  panelOpenState = false;
 
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router,
               private sessionService: SessionService) {
@@ -31,7 +32,7 @@ export class CurOrdComponent implements OnInit {
     let that = this;
     that.sessionService.checkSession(() => {
       that.http.get('http://localhost:8080/orders/' + that.sessionService.getId()).subscribe((resp: Order[]) => {
-        that.orders = resp;
+        that.getRole(that.enrichOrders(resp));
       });
     });
   }
@@ -69,19 +70,30 @@ export class CurOrdComponent implements OnInit {
     return this.sessionService.addOrder();
   }
 
-  getRole() {
-    this.http.post('http://localhost:8080/get/role', this.sessionService.getId()).subscribe((str: string) => {
-      if (str == 'COOK') {
+  getRole(callback) {
+    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user: User) => {
+      console.log(user);
+      if (user.getRole() == 'COOK') {
         this.flag = true;
       } else {
         this.flag = false;
       }
+      callback();
     });
   }
 
   updateStatus(order: Order) {
     this.http.post('http://localhost:8080/order/status/update', order.getId()).subscribe((subscription: Order) => {
       order.setStatus(subscription.getStatus());
+    });
+  }
+
+  enrichOrders(response) {
+    response.forEach((order) => {
+      this.http.get('http://localhost:8080/get/' + order.id).subscribe((description) => {
+        order.description = description;
+        this.orders.push(order);
+      });
     });
   }
 }

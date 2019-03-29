@@ -38,8 +38,18 @@ export class SessionService implements OnInit {
 
   addOrder() {
     this.http.get('http://localhost:8080/orders/add/' + this.cookieService.get('userId')).subscribe((n: number) => {
+      this.cookieService.set('orderId', n.toString());
       this.router.navigateByUrl('/menu');
     });
+  }
+
+  getOrderId() {
+    return this.cookieService.get('orderId');
+  }
+
+  setOrderId(value: number) {
+    this.cookieService.delete('orderId');
+    this.cookieService.set('orderId', value.toString());
   }
 
 

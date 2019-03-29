@@ -1,6 +1,6 @@
 import {Component, Inject, Injectable, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ActivatedRoute, Routes} from '@angular/router';
+import {ActivatedRoute, Router, Routes} from '@angular/router';
 import {Dish} from '../dto/Dish';
 import {OrderNumber} from '../dto/OrderNumber';
 import {MAT_DIALOG_DATA} from '@angular/material';
@@ -17,8 +17,8 @@ export class CardComponent implements OnInit {
   public order: number;
   private dishes: Dish[];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, @Inject(MAT_DIALOG_DATA) data, private sessionService: SessionService) {
-    this.order = Number.parseInt(data.variable);
+  constructor(private http: HttpClient, private route: ActivatedRoute, private sessionService: SessionService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -29,8 +29,10 @@ export class CardComponent implements OnInit {
     });
   }
 
-  confirm() {
-    this.http.get('http://localhost:8080/confirm/' + this.order.toString());
+  confirmOrder() {
+    this.http.get('http://localhost:8080/' + this.order.toString() + '/confirm');
+    this.sessionService.setOrderId(0);
+    this.router.navigateByUrl('/orders');
   }
 
   delete(dish: Dish) {
@@ -38,4 +40,10 @@ export class CardComponent implements OnInit {
       this.dishes.splice(this.dishes.indexOf(dish), 1);
     });
   }
+
+  lengthOfCurrentOrder() {
+    return this.dishes.length;
+  }
+
+
 }

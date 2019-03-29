@@ -8,7 +8,7 @@
   <span>Big Apple</span>
   <span class="example-spacer"></span>
   <button mat-icon-button>
-    <mat-icon (click)="openDialog()">shopping_cart</mat-icon>
+    <mat-icon routerLink="/cart">shopping_cart</mat-icon>
   </button>
   <button mat-button (click)="this.sessionService.exit()">Logout</button>
 </mat-toolbar>

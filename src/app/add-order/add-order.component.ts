@@ -53,12 +53,9 @@ export class AddOrderComponent implements OnInit {
   getOrderByUser(callback) {
     this.http.get('http://localhost:8080/get/order/' + this.sessionService.getId()).subscribe((orderId: number) => {
       this.ord = orderId;
+      this.sessionService.setOrderId(this.ord);
       callback();
     });
-  }
-
-  lengthOfOrder(): number {
-    return this.order.length;
   }
 
   addDish(dish: Dish) {
@@ -68,15 +65,15 @@ export class AddOrderComponent implements OnInit {
     this.http.post(url, dish.id).subscribe((n) => console.log(n));
   }
 
-  openDialog() {
-    if (this.lengthOfOrder() != 0) {
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.disableClose = false;
-      this.dialog.open(CardComponent, {
-        data: {variable: this.ord},
-        height: '400px', width: '350px'
-      });
-    }
-  }
+  // openDialog() {
+  //   if (this.order.length != 0) {
+  //     const dialogConfig = new MatDialogConfig();
+  //     dialogConfig.disableClose = false;
+  //     this.dialog.open(CardComponent, {
+  //       data: {variable: this.ord},
+  //       height: '400px', width: '350px'
+  //     });
+  //   }
+  // }
 }
 

@@ -22,14 +22,10 @@
 }
 
 .confirmButton {
-  margin: 3%;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
-.continueButton {
-  margin-left: 29%;
-}
-/*.mat-dialog-container {*/
-   /*width: 400px !important;*/
-   /*height: 400px !important;*/
-   /*!*transform: initial;*!*/
- /*}*/
 
+.empty {
+  font-size: 11pt !important;
+}
