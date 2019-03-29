@@ -8,7 +8,6 @@ export class PersonalData {
   private _mobileNumber: string;
   private _avatar: string;
 
-
   constructor(id: number, user: number, firstname: string, surname: string, age: string, sex: string, mobileNumber: string, avatar: string) {
     this._id = id;
     this._user = user;
@@ -19,7 +18,6 @@ export class PersonalData {
     this._mobileNumber = mobileNumber;
     this._avatar = avatar;
   }
-
 
   get id(): number {
     return this._id;

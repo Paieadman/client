@@ -1,14 +1,10 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {ArrayType} from '@angular/compiler';
-import {from} from 'rxjs';
 import {Order} from '../dto/Order';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
-import {SessionService} from '../Services/SessionService';
-import {AuthorizationService} from '../Services/AuthorizationService';
+import {SessionService} from '../service/SessionService';
+import {User} from '../dto/User';
 
 declare var $: any;
 

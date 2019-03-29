@@ -1,12 +1,9 @@
-import {Serializable} from 'selenium-webdriver';
-
 export class Order {
   private id: number;
   private user: number;
   private date: string;
   private status: number;
   private cook: number;
-
 
   constructor(id: number, user: number, date: string, status: number, cook: number) {
     this.id = id;
@@ -50,5 +47,6 @@ export class Order {
 
   getCook(): number {
     return this.cook;
-}
+  }
+
 }

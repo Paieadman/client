@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SessionService} from '../Services/SessionService';
+import {SessionService} from '../service/SessionService';
 import {HttpClient} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';

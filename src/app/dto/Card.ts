@@ -1,16 +1,13 @@
-
 export class Card {
   private id: number;
   private orderId: number;
   private dish: number;
-
 
   constructor(id: number, orderId: number, dish: number) {
     this.id = id;
     this.orderId = orderId;
     this.dish = dish;
   }
-
 
   getId(): number {
     return this.id;

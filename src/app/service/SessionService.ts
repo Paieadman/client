@@ -52,5 +52,4 @@ export class SessionService implements OnInit {
     this.cookieService.set('orderId', value.toString());
   }
 
-
 }

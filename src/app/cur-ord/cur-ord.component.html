@@ -8,10 +8,10 @@
     {{obj.cook}}
     <span class="example-spacer"></span>
     <mat-panel-description>
-    <button mat-flat-button *ngIf="!this.flag" (click)="updateStatus(obj)" color="primary">Update Status</button>
+      {{obj.description}}
+      <button mat-flat-button *ngIf="this.flag" (click)="updateStatus(obj)" color="primary">Update Status</button>
     </mat-panel-description>
   </mat-expansion-panel>
-
 </mat-accordion>
 
 

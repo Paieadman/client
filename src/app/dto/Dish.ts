@@ -1,5 +1,3 @@
-import {Serializable} from 'selenium-webdriver';
-
 export class Dish {
   private _id: number;
   private _composition: string;
@@ -7,7 +5,6 @@ export class Dish {
   private _image: string;
   private _name: string;
   private _category: string;
-
 
   constructor(id: number, composition: string, cost: number, image: string, name: string, category: string) {
     this._id = id;

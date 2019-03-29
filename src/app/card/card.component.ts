@@ -2,9 +2,8 @@ import {Component, Inject, Injectable, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute, Router, Routes} from '@angular/router';
 import {Dish} from '../dto/Dish';
-import {OrderNumber} from '../dto/OrderNumber';
-import {MAT_DIALOG_DATA} from '@angular/material';
-import {SessionService} from '../Services/SessionService';
+import {MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
+import {SessionService} from '../service/SessionService';
 
 @Component({
   selector: 'app-card',
@@ -22,7 +21,7 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.variable = Number.parseInt(this.route.snapshot.paramMap.get('id'));
+    this.order = Number.parseInt(this.sessionService.getOrderId());
     let url: string = 'http://localhost:8080/' + this.order.toString() + '/get/all';
     this.http.get(url).subscribe((n: Dish[]) => {
       this.dishes = n;

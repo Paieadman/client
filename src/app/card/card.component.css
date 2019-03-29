@@ -1,9 +1,5 @@
 .lst {
   display: flex;
-  /*flex-direction: column;*/
-  /*margin-left: 30%;*/
-  /*!*margin-top: 1%;*!*/
-  /*margin-right: 30%;*/
   float: left;
   height: 100%;
   width: 150px;

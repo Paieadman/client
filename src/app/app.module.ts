@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {FormControl, FormsModule, Validators, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 import { CurOrdComponent } from './cur-ord/cur-ord.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,7 +18,6 @@ import {
   MatCardModule,
   MatSidenavModule,
   MatCheckboxModule,
-  MatAccordion,
   MatExpansionModule,
   MatFormFieldModule,
   MatInputModule,
@@ -36,8 +34,9 @@ import { MyComponent } from './my/my.component';
 import { InfoComponent } from './info/info.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { PerformedComponent } from './performed/performed.component';
-import { TitledComponent } from './titled/titled.component';
+import { HomeComponent } from './home/home.component';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { CookersComponent } from './cookers/cookers.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +50,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     InfoComponent,
     AnalyticsComponent,
     PerformedComponent,
-    TitledComponent
+    HomeComponent,
+    CookersComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +101,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatChipsModule,
     MatDatepickerModule
   ],
-  providers: [ CookieService],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,12 @@
 
 
-    <mat-nav-list>
-      <mat-list-item *ngFor="let i of dishes" class="listItem">{{i.name}}
-        <span class="example-spacer"></span>
-        <button mat-flat-button color="primary" (click)="delete(i)">Delete</button>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-      <button class="confirmButton" mat-flat-button color="primary" [mat-dialog-close] routerLink="/orders" (click)="confirm()">Confirm</button>
-      <span class="example-spacer"></span>
-      <button class="continueButton" mat-flat-button color="primary" [mat-dialog-close]>Continue</button>
-    </mat-nav-list>
+<mat-nav-list *ngIf="dishes.length!=0">
+  <mat-list-item *ngFor="let i of dishes" class="listItem">{{i.name}}
+    <span class="example-spacer"></span>
+    <button mat-flat-button color="primary" (click)="delete(i)">Delete</button>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <button class="confirmButton" mat-flat-button color="primary" (click)="confirmOrder()">Confirm</button>
+
+</mat-nav-list>
+<p *ngIf="dishes.length==0" class="empty">КОРЗИНА ПУСТА</p>

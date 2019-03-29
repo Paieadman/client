@@ -1,15 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Order} from '../dto/Order';
 import {Dish} from '../dto/Dish';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {CardComponent} from '../card/card.component';
-import {OrderNumber} from '../dto/OrderNumber';
-import {variable} from '@angular/compiler/src/output/output_ast';
-import {CookieService} from 'ngx-cookie-service';
-import {SessionService} from '../Services/SessionService';
-
+import {SessionService} from '../service/SessionService';
 
 const cudOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
@@ -60,7 +55,6 @@ export class AddOrderComponent implements OnInit {
 
   addDish(dish: Dish) {
     this.order.push(dish);
-    console.log(dish.id);
     let url: string = 'http://localhost:8080/' + this.ord + '/add';
     this.http.post(url, dish.id).subscribe((n) => console.log(n));
   }

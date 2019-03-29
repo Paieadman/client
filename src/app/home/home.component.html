@@ -1,7 +1,4 @@
-
-
 <mat-toolbar color="primary">
-
   <button type="button" area-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="purple-green">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
@@ -14,10 +11,8 @@
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
-  <mat-sidenav  mode="side" closed #drawer >
-
+  <mat-sidenav mode="side" #drawer>
     <mat-nav-list>
-
       <mat-list-item routerLink="/orders" (click)="drawer.toggle()">
         <div>Текущие заказы</div>
       </mat-list-item>
@@ -39,9 +34,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-
-  <router-outlet></router-outlet>
-
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

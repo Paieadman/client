@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RegistrationService} from '../Services/RegistrationService';
+import {RegistrationService} from '../service/RegistrationService';
 import {FormControl, Validators} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
@@ -18,11 +18,9 @@ export class RegistrationComponent implements OnInit {
   public inputValidator4 = new FormControl('', [Validators.required]);
   private error = false;
 
-  constructor(private http: RegistrationService, private cookieService: CookieService, private router: Router) {
-  }
+  constructor(private http: RegistrationService, private cookieService: CookieService, private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getErrorMessage1() {
     return this.inputValidator1.hasError('required') ? 'You must enter a value' : '';

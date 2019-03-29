@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../dto/user';
-import {AuthorizationService} from '../Services/AuthorizationService';
+import {AuthorizationService} from '../service/AuthorizationService';
 import {MatButtonModule, MatCheckboxModule, MatDialog, MatInputModule} from '@angular/material';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
