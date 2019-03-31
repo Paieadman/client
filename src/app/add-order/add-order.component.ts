@@ -38,6 +38,7 @@ export class AddOrderComponent implements OnInit {
           } else {
             that.http.get('http://localhost:8080/orders/add/' + that.sessionService.getId()).subscribe((order: number) => {
               that.ord = order;
+              that.sessionService.setOrderId(order);
             });
           }
         });

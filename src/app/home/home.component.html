@@ -4,10 +4,12 @@
   </button>
   <span>Big Apple</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button>
-    <mat-icon routerLink="/cart">shopping_cart</mat-icon>
+  <button mat-icon-button matBadge="/////////////////////" routerLink="/cart">
+    <mat-icon >shopping_cart</mat-icon>
   </button>
-  <button mat-button (click)="this.sessionService.exit()">Logout</button>
+  <button mat-button (click)="this.sessionService.exit()">
+  <mat-icon>exit_to_app</mat-icon>
+  </button>
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
@@ -30,6 +32,9 @@
       </mat-list-item>
       <mat-list-item routerLink="/menu" (click)="drawer.toggle()">
         <div>Меню</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/cookers" (click)="drawer.toggle()" *ngIf="this.flag">
+        <div>Кухня</div>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

@@ -29,6 +29,7 @@ export class CurOrdComponent implements OnInit {
     that.sessionService.checkSession(() => {
       that.http.get('http://localhost:8080/orders/' + that.sessionService.getId()).subscribe((resp: Order[]) => {
         that.getRole(that.enrichOrders(resp));
+        console.log(this.flag);
       });
     });
   }
@@ -67,9 +68,9 @@ export class CurOrdComponent implements OnInit {
   }
 
   getRole(callback) {
-    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user: User) => {
-      console.log(user);
-      if (user.getRole() == 'COOK') {
+    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user) => {
+      console.log(user.role);
+      if (user.role == 'COOK') {
         this.flag = true;
       } else {
         this.flag = false;
@@ -78,9 +79,8 @@ export class CurOrdComponent implements OnInit {
     });
   }
 
-  updateStatus(order: Order) {
-    this.http.post('http://localhost:8080/order/status/update', order.getId()).subscribe((subscription: Order) => {
-      order.setStatus(subscription.getStatus());
+  updateStatus(orderId: number) {
+    this.http.post('http://localhost:8080/' + orderId.toString() + '/order/status/update', this.sessionService.getId()).subscribe((subscription: Order) => {
     });
   }
 

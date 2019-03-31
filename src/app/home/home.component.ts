@@ -7,6 +7,7 @@ import {SessionService} from '../service/SessionService';
 import {CardComponent} from '../card/card.component';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material';
 import {Dish} from '../dto/Dish';
+import {User} from '../dto/User';
 
 declare var $: any;
 
@@ -25,8 +26,9 @@ export class HomeComponent implements OnInit {
               private cardComponent: CardComponent,
               private dialog: MatDialog) {
   }
-  private ord: Number;
-  private order: Dish[]
+  private ord: number;
+  private order: Dish[];
+  private flag: boolean;
 
   addDish(dish: Dish) {
     this.order.push(dish);
@@ -40,5 +42,16 @@ export class HomeComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/authorization');
     }
+    this.getRole();
+  }
+
+ getRole() {
+    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user) => {
+      if (user.role == 'COOK') {
+        this.flag = true;
+      } else {
+        this.flag = false;
+      }
+    });
   }
 }

@@ -23,7 +23,6 @@ export class MyComponent implements OnInit {
     let that = this;
     that.sessionService.checkSession(() => {
       this.http.get('http://localhost:8080/orders/' + this.sessionService.getId() + '/all').subscribe((resp: Order[]) => {
-        // this.orders = resp;
         this.enrichOrders(resp);
     });
   });

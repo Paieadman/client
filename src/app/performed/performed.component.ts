@@ -14,7 +14,6 @@ import {Order} from '../dto/Order';
 export class PerformedComponent implements OnInit {
 
   orders: Order[] = [];
-
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router,
               private sessionService: SessionService) {
   }
@@ -23,7 +22,16 @@ export class PerformedComponent implements OnInit {
     let that = this;
     that.sessionService.checkSession(() => {
       this.http.get('http://localhost:8080/orders/' + this.sessionService.getId() + '/performed').subscribe((resp: Order[]) => {
-        this.orders = resp;
+        this.enrichOrders(resp);
+      });
+    });
+  }
+
+  enrichOrders(response) {
+    response.forEach((order) => {
+      this.http.get('http://localhost:8080/get/' + order.id).subscribe((description) => {
+        order.description = description;
+        this.orders.push(order);
       });
     });
   }

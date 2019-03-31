@@ -29,9 +29,10 @@ export class CardComponent implements OnInit {
   }
 
   confirmOrder() {
-    this.http.get('http://localhost:8080/' + this.order.toString() + '/confirm');
-    this.sessionService.setOrderId(0);
-    this.router.navigateByUrl('/orders');
+    this.http.get('http://localhost:8080/' + this.order.toString() + '/confirm').subscribe(() => {
+      this.sessionService.setOrderId(0);
+      this.router.navigateByUrl('/orders');
+    });
   }
 
   delete(dish: Dish) {
