@@ -23,8 +23,8 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@fortawesome/fontawesome-free": "^5.7.2",
+    "@ngmodule/material-carousel": "^0.5.1",
     "@types/chart.js": "^2.7.45",
-    "angular-bootstrap-md": "^7.4.1",
     "angular2-materialize": "^15.1.10",
     "canvas": "^2.4.1",
     "chart.js": "^2.8.0",
@@ -34,6 +34,7 @@
     "materialize-css": "^0.100.2",
     "moment": "^2.24.0",
     "ngx-cookie-service": "^2.1.0",
+    "ngx-drag-scroll": "^8.0.0-beta.2",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

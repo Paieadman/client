@@ -1,0 +1,46 @@
+<mat-nav-list *ngIf="dishes.length!=0">
+  <mat-list-item *ngFor="let i of dishes" class="listItem">{{i.name}}
+    <span class="example-spacer"></span>
+    <button mat-flat-button color="primary" (click)="delete(i)">Delete</button>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>
+<p *ngIf="dishes.length==0" class="empty">КОРЗИНА ПУСТА</p>
+
+<mat-horizontal-stepper *ngIf="dishes.length!=0">
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Street</ng-template>
+      <mat-form-field>
+        <input matInput #street>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>House</ng-template>
+      <mat-form-field>
+        <input matInput #house>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Flat</ng-template>
+      <mat-form-field>
+        <input matInput #flat>
+      </mat-form-field>
+      <div>
+        <button mat-button (click)="delivery(street.value, house.value, flat.value)">Confirm</button>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

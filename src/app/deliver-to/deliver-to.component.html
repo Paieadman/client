@@ -1,0 +1,17 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let obj of orders; index as i">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Заказ №{{i+1}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <span class="example-spacer"></span>
+    <mat-panel-description>
+      <div class="ey">
+        {{obj.description}}
+      </div>
+      <span class="example-spacer"></span>
+      <button mat-flat-button style="margin: 0.1px;" (click)="updateStatus(obj.id)" color="primary">Доставить</button>
+    </mat-panel-description>
+  </mat-expansion-panel>
+</mat-accordion>

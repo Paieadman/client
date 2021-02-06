@@ -1,0 +1,22 @@
+drag-scroll {
+  height: 60%;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+img {
+  height: 90%;
+  width: 50%
+}
+
+.about {
+  position: absolute;
+  left: 47%;
+  margin-right: -53%;
+  margin-bottom: 3%;
+}
+
+.scr {
+  color: #3f51b5;
+}

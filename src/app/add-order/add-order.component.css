@@ -1,9 +1,9 @@
-mat-sidenav{
+mat-sidenav {
   width: 300px;
   height: 100%;
 }
 
-mat-sidenav-container{
+mat-sidenav-container {
   height: 100%;
 }
 
@@ -53,4 +53,12 @@ mat-sidenav-container{
 
 .mat-sidenav-content {
   padding: 0;
+}
+
+.tit {
+  height: 15vh;
+}
+
+.stit {
+  height: 8vh;
 }

@@ -5,8 +5,6 @@ import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import {Chart} from 'node_modules/chart.js';
 
-// import Chart = require('chart.js');
-
 @Component({
   selector: 'app-analytics',
   templateUrl: './analytics.component.html',

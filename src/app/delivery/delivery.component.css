@@ -1,0 +1,27 @@
+.lst {
+  display: flex;
+  float: left;
+  height: 100%;
+  width: 150px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.listItem {
+  width: 100%;
+}
+
+.mat-list {
+  width: 100%;
+}
+
+.confirmButton {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.empty {
+  font-size: 11pt !important;
+}

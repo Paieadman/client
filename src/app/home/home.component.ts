@@ -1,13 +1,12 @@
-import {Component, Inject, Injectable, OnInit, Optional} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Order} from '../dto/Order';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import {SessionService} from '../service/SessionService';
 import {CardComponent} from '../card/card.component';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {Dish} from '../dto/Dish';
-import {User} from '../dto/User';
+import {DtoString} from '../dto/DtoString';
 
 declare var $: any;
 
@@ -26,9 +25,13 @@ export class HomeComponent implements OnInit {
               private cardComponent: CardComponent,
               private dialog: MatDialog) {
   }
+
   private ord: number;
   private order: Dish[];
   private flag: boolean;
+
+  private flagADMIN = false;
+
 
   addDish(dish: Dish) {
     this.order.push(dish);
@@ -38,19 +41,23 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.cookieService.get('userId')) {
-      this.router.navigateByUrl('/orders');
+      this.router.navigateByUrl('/restaurant/orders');
     } else {
       this.router.navigateByUrl('/authorization');
     }
     this.getRole();
   }
 
- getRole() {
-    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user) => {
-      if (user.role == 'COOK') {
+  getRole() {
+    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user: DtoString) => {
+      if (user.str === 'COOK') {
         this.flag = true;
       } else {
         this.flag = false;
+        if (user.str === 'ADMIN') {
+
+          this.flagADMIN = true;
+        }
       }
     });
   }

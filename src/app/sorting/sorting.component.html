@@ -1,0 +1,16 @@
+<div>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" #sorting [matMenuTriggerFor]="appMenu">Sort</button>
+</div>
+<mat-menu #appMenu="matMenu">
+  <ng-template matMenuContent>
+    <button mat-menu-item routerLink="menu/all">ALL</button>
+    <button mat-menu-item routerLink="menu/Hot">HOT</button>
+    <button mat-menu-item routerLink="menu/Salad">SALAD</button>
+    <button mat-menu-item routerLink="menu/SideDish">SIDE DISH</button>
+    <button mat-menu-item routerLink="menu/Deserts">DESERTS</button>
+    <button mat-menu-item routerLink="menu/Drinks">DRINKS</button>
+  </ng-template>
+</mat-menu>
+<mat-divider #di></mat-divider>
+<router-outlet></router-outlet>

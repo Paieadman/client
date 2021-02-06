@@ -1,0 +1,22 @@
+<mat-accordion >
+  <mat-expansion-panel *ngFor="let obj of finalOrders; index as i"
+                       (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Заказ №{{(i+1)}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <span class="example-spacer"></span>
+    <mat-panel-description>
+      <div>
+        {{obj.toString()}}
+      </div>
+    </mat-panel-description>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+

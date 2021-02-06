@@ -14,6 +14,7 @@ import {Order} from '../dto/Order';
 export class PerformedComponent implements OnInit {
 
   orders: Order[] = [];
+
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router,
               private sessionService: SessionService) {
   }

@@ -5,6 +5,8 @@ import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import {SessionService} from '../service/SessionService';
 import {User} from '../dto/User';
+import {UserAuthorized} from '../dto/UserAuthorized';
+import {DtoString} from '../dto/DtoString';
 
 declare var $: any;
 
@@ -19,6 +21,7 @@ export class CurOrdComponent implements OnInit {
   orders: Order[] = [];
   private flag: boolean;
   panelOpenState = false;
+
 
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router,
               private sessionService: SessionService) {
@@ -43,10 +46,6 @@ export class CurOrdComponent implements OnInit {
     this.http.get(str).subscribe(n => console.log(n));
   }
 
-  mouseEnter() {
-    console.log('hello');
-  }
-
   getUrl(ord: number) {
     console.log(ord);
     const Url: string = '/' + ord + '/update';
@@ -68,9 +67,9 @@ export class CurOrdComponent implements OnInit {
   }
 
   getRole(callback) {
-    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user) => {
-      console.log(user.role);
-      if (user.role == 'COOK') {
+    this.http.get('http://localhost:8080/get/role/' + this.sessionService.getId()).subscribe((user: DtoString) => {
+      console.log('getRole');
+      if (user.str === 'COOK') {
         this.flag = true;
       } else {
         this.flag = false;
@@ -79,15 +78,17 @@ export class CurOrdComponent implements OnInit {
     });
   }
 
-  updateStatus(orderId: number) {
+  updateStatus(orderId: Order) {
     this.http.post('http://localhost:8080/' + orderId.toString() + '/order/status/update', this.sessionService.getId()).subscribe((subscription: Order) => {
     });
   }
 
   enrichOrders(response) {
+    console.log('enrich orders');
     response.forEach((order) => {
       this.http.get('http://localhost:8080/get/' + order.id).subscribe((description) => {
         order.description = description;
+
         this.orders.push(order);
       });
     });

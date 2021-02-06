@@ -59,16 +59,5 @@ export class AddOrderComponent implements OnInit {
     let url: string = 'http://localhost:8080/' + this.ord + '/add';
     this.http.post(url, dish.id).subscribe((n) => console.log(n));
   }
-
-  // openDialog() {
-  //   if (this.order.length != 0) {
-  //     const dialogConfig = new MatDialogConfig();
-  //     dialogConfig.disableClose = false;
-  //     this.dialog.open(CardComponent, {
-  //       data: {variable: this.ord},
-  //       height: '400px', width: '350px'
-  //     });
-  //   }
-  // }
 }
 

@@ -1,0 +1,26 @@
+<div class="login">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Mail" #mail>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" #pass>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="tryAuthorize(mail.value, pass.value)">
+        Login
+      </button>
+      <button mat-raised-button color="primary" routerLink="/authorization">
+        Login as worker
+      </button>
+      <button mat-raised-button routerLink='/customer/registration'>Registration</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

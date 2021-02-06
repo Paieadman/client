@@ -15,6 +15,7 @@ export class MyComponent implements OnInit {
 
   orders: Order[] = [];
   panelOpenState = false;
+
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router,
               private sessionService: SessionService) {
   }
@@ -24,8 +25,8 @@ export class MyComponent implements OnInit {
     that.sessionService.checkSession(() => {
       this.http.get('http://localhost:8080/orders/' + this.sessionService.getId() + '/all').subscribe((resp: Order[]) => {
         this.enrichOrders(resp);
+      });
     });
-  });
   }
 
   enrichOrders(response) {

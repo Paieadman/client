@@ -1,15 +1,17 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let obj of orders">
+  <mat-expansion-panel *ngFor="let obj of orders; index as i">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Заказ №{{obj.id}}
+        Заказ №{{i+1}}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    {{obj.cook}}
     <span class="example-spacer"></span>
     <mat-panel-description>
-      {{obj.description}}
-      <button mat-flat-button (click)="updateStatus(obj)" color="primary">Update Status</button>
+      <div class="ey">
+        {{obj.description}}
+      </div>
+      <span class="example-spacer"></span>
+      <button mat-flat-button style="margin: 0.1px;" (click)="updateStatus(obj.id)" color="primary">Готово</button>
     </mat-panel-description>
   </mat-expansion-panel>
 </mat-accordion>

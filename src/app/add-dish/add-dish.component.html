@@ -1,0 +1,44 @@
+<div class="AddDish">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Новое блюдо</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Name of Dish" #name>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Cost" #cost>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Description" #composition>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Image" #Image>
+        </mat-form-field>
+        <mat-form-field>
+
+          <mat-label>category</mat-label>
+          <mat-option>
+            <mat-select #category>
+              <mat-option value="Hot"> Hot </mat-option>
+              <mat-option value="Cold starter"> Cold starter </mat-option>
+              <mat-option value="Salads"> Salads </mat-option>
+              <mat-option value="Soup"> Soup </mat-option>
+              <mat-option value="Side dish"> Side dish </mat-option>
+              <mat-option value="Deserts"> Deserts </mat-option>
+              <mat-option value="Bread"> Bread </mat-option>
+              <mat-option value="Souses"> Souses </mat-option>
+            </mat-select>
+          </mat-option>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary"
+              (click)="AddDish(name.value, cost.value, composition.value, Image.value, category.value)">ADD</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

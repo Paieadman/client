@@ -1,0 +1,17 @@
+<mat-card class="example-card" *ngFor="let obj of menu">
+  <img mat-card-image src="{{obj.image}}">
+  <mat-card-content>
+    <mat-card-title class="tit">{{obj.name}}</mat-card-title>
+    <mat-card-subtitle>
+      <mat-chip-list aria-label="Dish category">
+        <mat-chip color="primary">{{obj.category}}</mat-chip>
+      </mat-chip-list>
+    </mat-card-subtitle>
+    <p class="stit">
+      {{obj.composition}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="addDish(obj)">ADD</button>
+  </mat-card-actions>
+</mat-card>

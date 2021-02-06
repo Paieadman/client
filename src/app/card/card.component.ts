@@ -14,6 +14,7 @@ import {SessionService} from '../service/SessionService';
 export class CardComponent implements OnInit {
 
   public order: number;
+
   private dishes: Dish[];
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private sessionService: SessionService,

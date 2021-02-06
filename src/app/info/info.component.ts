@@ -37,8 +37,10 @@ export class InfoComponent implements OnInit {
 
   ChangeInformation(Firstname: string, Surname: string, mobileNumer: string, Sex: string, Age: string) {
     let url = 'http://localhost:8080/change/personal/data';
-    let id = (this.personalData.id == 0) ? 0 : this.personalData.id;
-    this.http.post(url, new PersonalData(id, Number.parseInt(this.sessionService.getId()), Firstname, Surname, Age, Sex, mobileNumer, '')).subscribe(() => {
+    let id = (this.personalData.id === 0) ? 0 : this.personalData.id;
+    console.log(Age);
+    console.log(typeof Age);
+    this.http.post(url, new PersonalData(id, Number.parseInt(this.sessionService.getId()), Firstname, Surname, 1, Sex, mobileNumer, ' ')).subscribe(() => {
       this.router.navigateByUrl('/info');
     });
   }

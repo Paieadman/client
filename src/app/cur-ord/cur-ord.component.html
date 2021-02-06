@@ -1,20 +1,22 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let obj of orders"
+  <mat-expansion-panel *ngFor="let obj of orders; index as i"
                        (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Заказ №{{obj.id}}
+        Заказ №{{(i + 1).toString()}}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    {{obj.cook}}
     <span class="example-spacer"></span>
     <mat-panel-description>
       <div>
         {{obj.description}}
       </div>
+      <span class="example-spacer"></span>
       <div>
-        <button mat-flat-button *ngIf="this.flag" (click)="updateStatus(obj.id)" color="primary" routerLink="/kitchen">Chose</button>
+        <button mat-flat-button *ngIf="this.flag" (click)="updateStatus(obj.id)" color="primary" routerLink="/kitchen">
+          Chose
+        </button>
       </div>
     </mat-panel-description>
   </mat-expansion-panel>

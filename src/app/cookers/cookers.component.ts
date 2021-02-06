@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Order} from '../dto/Order';
 import {SessionService} from '../service/SessionService';
 import {HttpClient} from '@angular/common/http';
@@ -14,9 +14,11 @@ import {Router} from '@angular/router';
 export class CookersComponent implements OnInit {
 
   constructor(private http: HttpClient, private cookieService: CookieService, private router: Router,
-              private sessionService: SessionService) { }
+              private sessionService: SessionService) {
+  }
 
   private orders: Order[] = [];
+
   ngOnInit() {
     let that = this;
     that.sessionService.checkSession(() => {
@@ -26,9 +28,15 @@ export class CookersComponent implements OnInit {
     });
   }
 
+  updateStatus(order: number) {
+    this.http.post('http://localhost:8080/' + order + '/order/status/update', this.sessionService.getId()).subscribe((subscription: Order) => {
+    });
+  }
+
   enrichOrders(response) {
     response.forEach((order) => {
       this.http.get('http://localhost:8080/get/' + order.id).subscribe((description) => {
+
         order.description = description;
         this.orders.push(order);
       });

@@ -20,6 +20,7 @@ export class AuthorizationComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   tryLogin(login: string, pass: string) {
@@ -27,7 +28,7 @@ export class AuthorizationComponent implements OnInit {
       if (userId != 0) {
         this.cookieSevice.delete('userId');
         this.cookieSevice.set('userId', userId.toString());
-        this.router.navigateByUrl('/orders');
+        this.router.navigateByUrl('/restaurant/orders');
       }
     });
   }

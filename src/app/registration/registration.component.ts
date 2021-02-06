@@ -18,9 +18,11 @@ export class RegistrationComponent implements OnInit {
   public inputValidator4 = new FormControl('', [Validators.required]);
   private error = false;
 
-  constructor(private http: RegistrationService, private cookieService: CookieService, private router: Router) {}
+  constructor(private http: RegistrationService, private cookieService: CookieService, private router: Router) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   getErrorMessage1() {
     return this.inputValidator1.hasError('required') ? 'You must enter a value' : '';
@@ -44,7 +46,7 @@ export class RegistrationComponent implements OnInit {
 
       this.http.getRegistration(name, role, login, password).subscribe((userId: number) => {
         this.cookieService.set('userId', userId.toString());
-        this.router.navigateByUrl('orders');
+        this.router.navigateByUrl('/restaurant/orders');
       });
     } else {
       this.error = true;

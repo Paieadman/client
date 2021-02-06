@@ -1,0 +1,13 @@
+<drag-scroll #nav>
+  <img drag-scroll-item *ngFor="let i of slides" src="{{i}}"/>
+</drag-scroll>
+<div class="about">
+  <button mat-icon-button (click)="moveLeft()">
+    <mat-icon class="scr">fast_rewind</mat-icon>
+  </button>
+  <button mat-icon-button (click)="moveRight()">
+    <mat-icon class="scr">fast_forward</mat-icon>
+  </button>
+</div>
+
+<router-outlet></router-outlet>

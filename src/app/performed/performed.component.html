@@ -1,10 +1,10 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let obj of orders"
+  <mat-expansion-panel *ngFor="let obj of orders; index as i"
                        (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{obj.id}}
+        Заказ №{{(i + 1).toString()}}
       </mat-panel-title>
     </mat-expansion-panel-header>
     {{obj.description}}

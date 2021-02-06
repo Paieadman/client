@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <button type="button" area-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="purple-green">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>Big Apple</span>
+
+  <span class="example-spacer"></span>
+  <button mat-icon-button routerLink="/delivery">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+  <button mat-button routerLink="/customer/authorization">
+    <mat-icon>account_box</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" #drawer>
+    <mat-nav-list>
+      <mat-card class="example-card" *ngIf="isAuthorized">
+        <mat-card-header>
+          <mat-card-title>{{this.customer.name}}</mat-card-title>
+          <mat-card-subtitle>{{this.customer.mail}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{customer.mobileNumber}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="this.exit(); drawer.toggle()">Выход</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-list-item routerLink="/history" (click)="drawer.toggle()" *ngIf="isAuthorized">
+        <div>История заказов</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/srt/menu/all" (click)="drawer.toggle()">
+        <div>Меню</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/delivery" (click)="drawer.toggle()">
+        <div>Корзина</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/carousel/comments" (click)="drawer.toggle()">
+        <div>Комментарии</div>
+      </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

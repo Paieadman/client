@@ -4,37 +4,43 @@
   </button>
   <span>Big Apple</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button matBadge="/////////////////////" routerLink="/cart">
-    <mat-icon >shopping_cart</mat-icon>
+  <button mat-icon-button routerLink="/restaurant/cart">
+    <mat-icon>shopping_cart</mat-icon>
   </button>
   <button mat-button (click)="this.sessionService.exit()">
-  <mat-icon>exit_to_app</mat-icon>
+    <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav mode="side" #drawer>
     <mat-nav-list>
-      <mat-list-item routerLink="/orders" (click)="drawer.toggle()">
+      <mat-list-item routerLink="/restaurant/orders" (click)="drawer.toggle()">
         <div>Текущие заказы</div>
       </mat-list-item>
-      <mat-list-item routerLink="/performed" (click)="drawer.toggle()">
+      <mat-list-item routerLink="/restaurant/performed" (click)="drawer.toggle()">
         <div>Выполненные</div>
       </mat-list-item>
-      <mat-list-item routerLink="/info" (click)="drawer.toggle()">
+      <mat-list-item routerLink="/restaurant/info" (click)="drawer.toggle()">
         <div>Сотрудник</div>
       </mat-list-item>
-      <mat-list-item routerLink="/orders/all" (click)="drawer.toggle()">
+      <mat-list-item routerLink="/restaurant/orders/all" (click)="drawer.toggle()">
         <div>Мои заказы</div>
       </mat-list-item>
-      <mat-list-item routerLink="/analytics" (click)="drawer.toggle()">
+      <mat-list-item routerLink="/restaurant/analytics" (click)="drawer.toggle()">
         <div>Аналитика</div>
       </mat-list-item>
-      <mat-list-item routerLink="/menu" (click)="drawer.toggle()">
+      <mat-list-item routerLink="/restaurant/menu" (click)="drawer.toggle()">
         <div>Меню</div>
       </mat-list-item>
-      <mat-list-item routerLink="/cookers" (click)="drawer.toggle()" *ngIf="this.flag">
+      <mat-list-item routerLink="/restaurant/cookers" (click)="drawer.toggle()" *ngIf="this.flag">
         <div>Кухня</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/restaurant/deliver" (click)="drawer.toggle()" *ngIf="!this.flag">
+        <div>Доставка</div>
+      </mat-list-item>
+      <mat-list-item routerLink="/restaurant/dish/new" *ngIf="this.flagADMIN" (click)="drawer.toggle()">
+        <div>Добавить блюдо</div>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

@@ -3,12 +3,13 @@ export class PersonalData {
   private _user: number;
   private _firstname: string;
   private _surname: string;
-  private _age: string;
+  private _age: number;
   private _sex: string;
   private _mobileNumber: string;
   private _avatar: string;
 
-  constructor(id: number, user: number, firstname: string, surname: string, age: string, sex: string, mobileNumber: string, avatar: string) {
+
+  constructor(id: number, user: number, firstname: string, surname: string, age: number, sex: string, mobileNumber: string, avatar: string) {
     this._id = id;
     this._user = user;
     this._firstname = firstname;
@@ -18,6 +19,7 @@ export class PersonalData {
     this._mobileNumber = mobileNumber;
     this._avatar = avatar;
   }
+
 
   get id(): number {
     return this._id;
@@ -51,11 +53,11 @@ export class PersonalData {
     this._surname = value;
   }
 
-  get age(): string {
+  get age(): number {
     return this._age;
   }
 
-  set age(value: string) {
+  set age(value: number) {
     this._age = value;
   }
 
